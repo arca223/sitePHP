@@ -20,7 +20,7 @@ ul#onglets
 	list-style-type : none; /* Car sinon les puces se placent n'importe où */
 }
 
-ul#onglets li.bouton_droite
+ul#onglets li.boutonD
 {
 	float : right;
 	border-left : 1px dashed black;
