@@ -24,7 +24,7 @@ catch (Exception $e)
 
 <form method="post" action="">
     <p>Nom d'utilisateur</p>
-    <input type="text" name="login" size="30"  placeholder="Entrez votre login"/>
+    <input type="text" name="login" size="30"  placeholder="Entrez votre login" <?php if (isset($_POST['login'])){ echo "value ='".$_POST['login']."'";} ?>/>
     </br>
     <p>Mot de passe</p>
     <input type="password" name="password" size="30" placeholder="Entrez votre password"/>
@@ -53,6 +53,7 @@ if (isset($_POST["connexion"])) {
         }
         */
         $_SESSION['compte']=$login;
+        header('Location: informations.html');
     }
 
 }
