@@ -61,6 +61,8 @@ if (isset($_POST["creation"])) {
     $res = $rep->fetch(PDO::FETCH_COLUMN);
     if (!$res) { //si 0 => login libre
         //CREATION DE COMPTE
+        $sql2="INSERT INTO `users`(`login`, `password`) VALUES ($login,$password)";
+        $resAdd2=$bdd->query($sql2);
         $sql="INSERT INTO `utilisateur`(`login`, `nom`, `prenom`, `mail`, `profession`) VALUES ($login,$nom,$prenom,$mail,$profession)";
         $resAdd=$bdd->query($sql);
         if ($resAdd) {
