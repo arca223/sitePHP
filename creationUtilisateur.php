@@ -61,16 +61,16 @@ if (isset($_POST["creation"])) {
     $res = $rep->fetch(PDO::FETCH_COLUMN);
     if (!$res) { //si 0 => login libre
         //CREATION DE COMPTE
-        $sql2="INSERT INTO `users`(`login`, `password`) VALUES ($login,$password)";
+        $sql2="INSERT INTO `users`(`login`, `password`) VALUES ($login,$password)"; //création du compte
         $resAdd2=$bdd->query($sql2);
-        $sql="INSERT INTO `utilisateur`(`login`, `nom`, `prenom`, `mail`, `profession`) VALUES ($login,$nom,$prenom,$mail,$profession)";
+        $sql="INSERT INTO `utilisateur`(`login`, `nom`, `prenom`, `mail`, `profession`) VALUES ($login,$nom,$prenom,$mail,$profession)"; //données de l'users
         $resAdd=$bdd->query($sql);
-        if ($resAdd) {
+        if ($resAdd) { // si création ok, msg d'info
             $msg = 'Création du compte :'. $login;
-            $msg .= '\n   Nom :'. $nom;
-            $msg .= '\n   Prénom :'. $prenom;
-            $msg .= '\n   Mail :'. $mail;
-            $msg .= '\n   Profession :'. $profession;
+            $msg .= '\n   - Nom :'. $nom;
+            $msg .= '\n   - Prénom :'. $prenom;
+            $msg .= '\n   - Mail :'. $mail;
+            $msg .= '\n   - Profession :'. $profession;
             ?>
             <script>if (confirm("<?php echo $msg; ?>")){ window.location.replace("login.php");}</script>
             <?php
