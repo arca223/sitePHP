@@ -24,9 +24,10 @@ class Users
 		$req->bindParam($login, PDO::PARAM_STR);
 		$rep->execute();
 		$res = $rep->fetch();
-		if ($res == "")
+		if (!$res)
 		{ 	
-			// BONJOUR
+			//si 0 => login libre
+		 	//CREATION DE COMPTE
 		}
 	}
 
