@@ -1,7 +1,6 @@
 <?php
 
 try {
-    //$bdd = new PDO('mysql:host=ccsddb01.in2p3.fr;dbname=ISIDORE','ccsd_sql','pap5e2008');
     $bdd = new PDO('mysql:host=localhost;dbname=sitephp', 'root', 'root');
 }
 catch (Exception $e)
