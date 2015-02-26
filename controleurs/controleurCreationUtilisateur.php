@@ -8,7 +8,6 @@
  */
 
 require "../modeles/ConnexionBdd.php";
-require "../modeles/Users.php";
 include_once "../modeles/Utilisateurs.php";
 
 
@@ -36,6 +35,10 @@ if (isset($_POST["creation"])) {
             $msg .= '\n   - Prénom :'. $prenom;
             $msg .= '\n   - Mail :'. $mail;
             $msg .= '\n   - Profession :'. $profession;
+
+            ?>
+            <script>if (confirm("<?php echo $msg; ?>")){ window.location.replace("login.php");}</script>
+            <?php
 
 
         } else {

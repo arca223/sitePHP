@@ -9,7 +9,6 @@
 require "private/config.php";
 require "Users.php";
 
-//test l'association login/password existe
 class Utilisateurs {
 
     protected $_db;
