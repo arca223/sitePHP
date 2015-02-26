@@ -15,15 +15,15 @@ class Users {
 		$req->bindParam(1, $login, PDO::PARAM_STR);
 		$req->bindParam(2, $pass, PDO::PARAM_STR);
 		$req->execute();
-		$login = $req->fetchAll();
+        return $req;
 	}
 	
 	public function verifLogin($login)
 	{
-		$req = $this->_bdd->prepare('SELECT login FROM utilisateurs WHERE login = ?');
-		$req->bindParam($login, PDO::PARAM_STR);
+		$req = $this->_bdd->prepare('SELECT login FROM `utilisateurs` WHERE `login`=?');
+		$req->bindParam(1, $login, PDO::PARAM_STR);
 		$req->execute();
-		$res = $req->fetch();
+		$res = $req->fetch(PDO::FETCH_COLUMN);
 		return $res;
 	}
 

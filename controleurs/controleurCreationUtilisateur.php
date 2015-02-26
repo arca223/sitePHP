@@ -13,23 +13,25 @@ include_once "../modeles/Utilisateurs.php";
 
 if (isset($_POST["creation"])) {
     $bdd = new ConnexionBDD();
-    $login=$bdd->quote($_POST["login"]);
-    $password=$bdd->quote(md5($_POST["password"]));
-    $mail=$bdd->quote($_POST["mail"]);
-    $profession=$bdd->quote($_POST["profession"]);
-    $prenom=$bdd->quote($_POST["prenom"]);
-    $nom=$bdd->quote($_POST["nom"]);
+    $login=$_POST["login"];
+    $password=md5($_POST["password"]);
+    $mail=$_POST["mail"];
+    $profession=$_POST["profession"];
+    $prenom=$_POST["prenom"];
+    $nom=$_POST["nom"];
 
 
     $user = new Users($bdd);
 
-    if ($user->verifLogin($login)) {
+
+    if (!$user->verifLogin($login)) {
 
         $utilisateur = new Utilisateurs($bdd);
 
+        $resAddBis = $user->ajouterUser($login,$password);
         $resAdd = $utilisateur->ajouterUtilisateur($login,$nom,$prenom,$mail,$profession);
 
-        if ($resAdd) { // si création ok, msg d'info
+        if ($resAdd || $resAddBis) { // si création ok, msg d'info
             $msg = 'Création du compte :'. $login;
             $msg .= '\n   - Nom :'. $nom;
             $msg .= '\n   - Prénom :'. $prenom;
@@ -37,7 +39,7 @@ if (isset($_POST["creation"])) {
             $msg .= '\n   - Profession :'. $profession;
 
             ?>
-            <script>if (confirm("<?php echo $msg; ?>")){ window.location.replace("login.php");}</script>
+            <script>if (confirm("<?php echo $msg; ?>")){ window.location.replace("../login.php");}</script>
             <?php
 
 
@@ -48,11 +50,7 @@ if (isset($_POST["creation"])) {
         }
     } else { //res = 1 => login existant
         $msg='Le login ' . $login . ' est déjà utilisé';
-    }?>
-
-    <script>alert("<?php echo $msg; ?>");</script>
-
-<?php
+    }
 }
 
 

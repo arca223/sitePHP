@@ -7,8 +7,12 @@
  * To change this template use File | Settings | File Templates.
  */
 
+require "modeles/ConnexionBdd.php";
 require "modeles/Utilisateurs.php";
-
-$u = new Utilisateurs();
+$bdd = new ConnexionBDD();
+$u = new Utilisateurs($bdd);
+$us = new Users($bdd);
 $res=$u->getUtilisateur("arca");
 var_dump($res);
+
+var_dump($res2=$us->verifLogin("azregtrrca"));
