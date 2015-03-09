@@ -10,9 +10,10 @@
 require "../modeles/ConnexionBdd.php";
 include_once "../modeles/Utilisateurs.php";
 
+$bdd = new ConnexionBDD();
 
 if (isset($_POST["creation"])) {
-    $bdd = new ConnexionBDD();
+
     $login=$_POST["login"];
     $password=md5($_POST["password"]);
     $mail=$_POST["mail"];

@@ -7,7 +7,7 @@
  * To change this template use File | Settings | File Templates.
  */
 require "private/config.php";
-require "Users.php";
+require "Users.php"; // besoin de mixer les deux
 
 class Utilisateurs {
 

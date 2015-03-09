@@ -1,7 +1,7 @@
 <?php
+require "ConnexionBDD.php";
 
 Class Pathologies {
-
 
     protected $_bdd;
 

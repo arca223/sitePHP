@@ -1,13 +1,19 @@
 <?php
+require "ConnexionBDD.php";
 
 class Users {
 
 	protected $_bdd;	
 	
-	public function __construct($bdd)
+	public function __construct()
 	{
-		$this->_bdd = $bdd;
+		$this->_bdd = new ConnexionBDD();
 	}
+
+    public function __constructExist()
+    {
+
+    }
 
 	public function ajouterUser($login,$pass)
 	{

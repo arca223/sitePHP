@@ -1,7 +1,6 @@
 <?php
-
+require "ConnexionBDD.php";
 Class ListePatho {
-
 
     protected $_bdd;
 
@@ -13,8 +12,6 @@ Class ListePatho {
 
     function get_listePatho()
     {
-
-
         $req = $this->_bdd->prepare('SELECT nom_patho, type_patho, carac_patho FROM pathologies');
         $req->execute();
         $pathologies = $req->fetchAll();
