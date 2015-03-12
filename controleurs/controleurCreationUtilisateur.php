@@ -22,15 +22,13 @@ if (isset($_POST["creation"])) {
     $nom=$_POST["nom"];
 
 
-    $user = new Users($bdd);
+    $user = new Utilisateurs($bdd);
 
 
     if (!$user->verifLogin($login)) {
 
-        $utilisateur = new Utilisateurs($bdd);
-
         $resAddBis = $user->ajouterUser($login,$password);
-        $resAdd = $utilisateur->ajouterUtilisateur($login,$nom,$prenom,$mail,$profession);
+        $resAdd = $user->ajouterUtilisateur($login,$nom,$prenom,$mail,$profession);
 
         if ($resAdd || $resAddBis) { // si création ok, msg d'info
             $msg = 'Création du compte :'. $login;
@@ -39,8 +37,8 @@ if (isset($_POST["creation"])) {
             $msg .= '\n   - Mail :'. $mail;
             $msg .= '\n   - Profession :'. $profession;
 
-            ?>
-            <script>if (confirm("<?php echo $msg; ?>")){ window.location.replace("../login.php");}</script>
+            //si la créa sur les deux bases est ok, on redirige sur la page de login (confirm) avec un msg pour prev le compte?>
+            <script>if (confirm("<?php echo $msg; ?>")){ window.location.rcontroleurLce("../login.php");}</script>
             <?php
 
 
@@ -51,7 +49,10 @@ if (isset($_POST["creation"])) {
         }
     } else { //res = 1 => login existant
         $msg='Le login ' . $login . ' est déjà utilisé';
-    }
+    } ?>
+
+    <script>alert("<?php echo $msg; ?>");</script>
+<?php
 }
 
 

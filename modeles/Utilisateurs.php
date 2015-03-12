@@ -7,12 +7,10 @@
  * To change this template use File | Settings | File Templates.
  */
 require "private/config.php";
-require "Users.php"; // besoin de mixer les deux
 
 class Utilisateurs {
 
     protected $_db;
-    protected $_users;
 
 
     public function __construct($bdd) {
@@ -20,19 +18,6 @@ class Utilisateurs {
     }
 
 
-    /*
-    private function connexionBDD() {
-        try {
-            $bdd = new PDO('mysql:host='.HOST.';dbname='.DBNAME, LOGIN, PASSWORD);
-        }
-        catch (Exception $e)
-        {
-            die('Erreur : ' . $e->getMessage());
-        }
-
-        return $bdd;
-
-    }*/
 
 
     public function ajouterUtilisateur($login, $nom, $prenom, $mail, $profession) {
@@ -46,8 +31,12 @@ class Utilisateurs {
         $req->bindParam(3, $prenom, PDO::PARAM_STR);
         $req->bindParam(4, $mail, PDO::PARAM_STR);
         $req->bindParam(5, $profession, PDO::PARAM_STR);
-        $req->execute();
-        if ($req) { // si création ok, msg d'info
+        try {
+            $req->execute();
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage()); //récup d'erreur sql
+        }
+        if ($req) { // si création ok
             return true;
         } else {
             return false;
@@ -66,6 +55,34 @@ class Utilisateurs {
             $ret = $res; //valeur de retour => table des infos de l'utilisateur
         }
         return $ret;
+    }
+
+    //fonctions pour les log/pw de la base users
+    public function ajouterUser($login,$pass)
+    {
+        $req = $this->_db->prepare('INSERT INTO `users`(`login`, `password`) VALUES (?,?)');
+        $req->bindParam(1, $login, PDO::PARAM_STR);
+        $req->bindParam(2, $pass, PDO::PARAM_STR);
+
+        try {
+            $req->execute();
+        } catch (Exception $e) {
+            die('Erreur : ' . $e->getMessage());
+        }
+        if ($req) { // si création ok
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function verifLogin($login)
+    {
+        $req = $this->_db->prepare('SELECT login FROM `utilisateurs` WHERE `login`=?');
+        $req->bindParam(1, $login, PDO::PARAM_STR);
+        $req->execute();
+        $res = $req->fetch(PDO::FETCH_COLUMN);
+        return $res;
     }
 
 
