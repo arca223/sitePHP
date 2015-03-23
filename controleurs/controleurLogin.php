@@ -28,4 +28,6 @@ if (isset($_POST["connexion"])) {
     }
 }
 
+include_once "../header.php";
 include_once "../vues/vueLogin.php";
+include_once "../footer.php";
