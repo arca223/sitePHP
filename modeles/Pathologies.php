@@ -6,7 +6,7 @@ global $bdd;
 
 function get_listePatho()
 { 
-	$req = $bdd->prepare('SELECT nom_patho, type_patho, carac_patho FROM pathologies');
+	$req = $bdd->prepare('SELECT * FROM `patho`');
 	$req->execute();
 	$pathologies = $req->fetchAll();
         
@@ -15,7 +15,7 @@ function get_listePatho()
 
 function recherchePatho($nomPatho)
 {
-	$req = $bdd->prepare('SELECT nom_patho, type_patho, carac_patho FROM pathologies WHERE nom_patho = ?');
+	$req = $bdd->prepare('SELECT nom_patho, type_patho, carac_patho FROM patho WHERE nom_patho = ?');
 	$req->bindParam($nom);
 	$nom = $nomPatho;
 	$req->execute();

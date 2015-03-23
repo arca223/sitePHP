@@ -16,6 +16,6 @@
 
 
 
-include_once "../header.php";
+include_once "../ressources/layout/header.php";
 include_once "../vues/vueAccueil.php";
-include_once "../footer.php";
+include_once "../ressources/layout/footer.php";

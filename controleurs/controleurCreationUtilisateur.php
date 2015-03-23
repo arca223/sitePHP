@@ -48,6 +48,6 @@ if (isset($_POST["creation"])) {
 <?php
 }
 
-include_once "../header.php";
+include_once "../ressources/layout/header.php";
 include_once "../vues/vueCreationUtilisateur.php";
-include_once "../footer.php";
+include_once "../ressources/layout/footer.php";
