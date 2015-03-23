@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by JetBrains PhpStorm.
- * User: Max TOMPOUCE
- * Date: 24/02/15
- * Time: 16:00
- * To change this template use File | Settings | File Templates.
- */
 
 require "../modeles/ConnexionBdd.php";
 include_once "../modeles/Utilisateurs.php";
@@ -55,5 +48,6 @@ if (isset($_POST["creation"])) {
 <?php
 }
 
-
+include_once "../header.php";
 include_once "../vues/vueCreationUtilisateur.php";
+include_once "../footer.php";
