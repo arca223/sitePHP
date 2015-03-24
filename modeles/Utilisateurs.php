@@ -6,7 +6,7 @@
  * Time: 16:26
  * To change this template use File | Settings | File Templates.
  */
-require "private/config.php";
+
 
 class Utilisateurs {
 

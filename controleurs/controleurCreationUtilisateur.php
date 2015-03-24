@@ -1,7 +1,7 @@
 <?php
 
 require "../modeles/ConnexionBdd.php";
-include_once "../modeles/Utilisateurs.php";
+require "../modeles/Utilisateurs.php";
 
 $bdd = new ConnexionBDD();
 

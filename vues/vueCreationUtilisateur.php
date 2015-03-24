@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<body>
+
 <form method="post" action="">
     <p>Nom</p>
     <input type="text" name="nom" size="30"  placeholder="Entrez votre nom"/>
@@ -33,4 +35,3 @@
 </form>
 
 </body>
-</html>

@@ -1,30 +1,28 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Liste des pathologies</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <link href="tp1-valider.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="ma_feuille_css_imprimante.css" type="text/css" media="print" />
-</head>
+
 <body>
-<table>
+<table class="tabpatho">
 	<caption>Liste des pathologies</caption>
 	<tr>
-		<th>Nom des pathologies</th>
-		<th>Type(s) des pathologies</th>
-		<th>Caractéristique(s) des pathologies</th>
+		<th class="lp" id="nom_mer">Nom du méridien</th>
+		<th class="lp" id="type_patho">Type(s) des pathologies</th>
+		<th class="lp" id="carac_patho">Caractéristique(s) des pathologies</th>
+        <th class="lp" id="elem">Element</th>
+        <th class="lp" id="yin">Yin</th>
 	</tr>
 <?php
 foreach ($listePatho as $pathologie)
 {
 	?>
 	<tr>
-		<th><?php echo $pathologie['nom_patho']; ?>
-		<th><?php echo $pathologie['type_patho']; ?>
-		<th><?php echo $pathologie['carac_patho']; ?>
+		<td id="lp" headers="nom_mer"><?php echo $pathologie['nom']; ?></td>
+		<td id="lp" headers="type_patho"><?php echo $pathologie['type']; ?></td>
+		<td id="lp" headers="carac_patho"><?php echo $pathologie['desc']; ?></td>
+        <td id="lp" headers="elem"><?php echo $pathologie['element']; ?></td>
+        <td id="lp" headers="yin"><?php echo $pathologie['yin']; ?></td>
 	</tr>
 <?php
 }
 ?>
+</table>
 </body>
-</html>
+

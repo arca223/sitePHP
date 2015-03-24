@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by JetBrains PhpStorm.
- * User: Max TOMPOUCE
- * Date: 09/03/15
- * Time: 16:39
- * To change this template use File | Settings | File Templates.
- */
 
-include_once "../modeles/Utilisateurs.php";
+require "../modeles/Utilisateurs.php";
 
 if (isset($_POST["connexion"])) {
     $login=$_POST["login"];

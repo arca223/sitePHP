@@ -1,5 +1,7 @@
 <?php
 
+require "/private/config.php";
+
 class ConnexionBDD extends PDO
 {
 

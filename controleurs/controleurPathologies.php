@@ -1,9 +1,13 @@
 <?php
 
 require "../modeles/ConnexionBdd.php";
-include_once "../modeles/Pathologies.php";
+require "../modeles/Pathologies.php";
 
-$listePatho = get_listPatho();
+
+$bdd = new ConnexionBDD();
+$patho = new Pathologies($bdd);
+
+$listePatho = $patho->get_listePatho();
 
 
 
