@@ -8,21 +8,32 @@ Class Pathologies {
 
     public function __construct($bdd) {
         $this->_bdd = $bdd;
+        $bdd->exec("SET CHARACTER SET UTF8");
     }
 
     function get_listePatho()
     {
-        $req = $this->_bdd->prepare('SELECT * FROM `patho` LEFT JOIN meridien as me on patho.mer=me.code ');
+        $req = $this->_bdd->prepare('SELECT nom, mer, patho.desc, patho.type, yin, element FROM `patho` LEFT JOIN meridien as me on patho.mer=me.code ');
         $req->execute();
         $pathologies = $req->fetchAll();
 
         return $pathologies;
     }
 
-    function recherchePatho($nom)
+    function get_listeMeridien()
     {
-        $req = $this->_bdd->prepare("SELECT me.nom, me.element, me.yin, patho.'type', patho.'desc' FROM patho, meridien as me WHERE nom = ? and me.code=patho.mer");
-        $req->bindParam($nom);
+        $req = $this->_bdd->prepare('SELECT me.nom, patho.type FROM `patho` LEFT JOIN meridien as me on patho.mer=me.code ');
+        $req->execute();
+        $pathologies = $req->fetchAll();
+
+        return $pathologies;
+    }
+
+    function recherchePatho($nom,$type)
+    {
+        $req = $this->_bdd->prepare("SELECT me.nom, /*me.element, me.yin, patho.desc, */patho.type FROM patho, meridien as me WHERE nom = ? and patho.type=? and me.code=patho.mer");
+        $req->bindParam(1, $nom, PDO::PARAM_STR);
+        $req->bindParam(2, $type, PDO::PARAM_STR);
         $req->execute();
         $patho = $req->fetchAll();
 

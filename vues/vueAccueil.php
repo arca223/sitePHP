@@ -1,9 +1,9 @@
 <?php
 ?>
-<body>
+<div class="corps">
 
     <br>
     <p> Bienvenue sur le site </p>
     <br>
 
-</body>
+</div>
