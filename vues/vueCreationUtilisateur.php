@@ -1,27 +1,26 @@
-
+<title>Création d'un compte utilisateur</title>
 <div class="corps">
+    <form method="post" action="#">
+        <label for="nom">Nom :</label>
+        <input id="nom" type="text" name="nom" size="30"  placeholder="Entrez votre nom"/>
+        <label for ="prenom">Prénom :</label>
+        <input id="prenom" type="text" name="prenom" size="30"  placeholder="Entrez votre prénom"/>
 
-    <form method="post" action="">
-        <p>Nom</p>
-        <input type="text" name="nom" size="30"  placeholder="Entrez votre nom"/>
-        <p>Prénom</p>
-        <input type="text" name="prenom" size="30"  placeholder="Entrez votre prénom"/>
-
-        <p>Profession/Rôle</p>
-        <select name="profession">
-            <option name="acu" value="Acupuncteur">Acupuncteur</option>
-            <option name="med" value="Médecin">Médecin</option>
-            <option name="chirur" value="Chirurgien">Chirurgien</option>
-            <option name="patient" value="Patient">Patient</option>
-            <option name="autre" value="Autre">Autre</option>
+        <label for ="prof">Profession/Rôle :</label>
+        <select id="prof" name="profession">
+            <option value="Acupuncteur">Acupuncteur</option>
+            <option value="Médecin">Médecin</option>
+            <option value="Chirurgien">Chirurgien</option>
+            <option value="Patient">Patient</option>
+            <option value="Autre">Autre</option>
         </select>
-        <p>E-mail</p>
-        <input type="text" name="mail" size="30"  placeholder="Entrez votre e-mail"/>
-        <p>Nom d'utilisateur</p>
-        <input type="text" name="login" size="30"  placeholder="Entrez votre login"/>
-        <p>Mot de passe</p>
-        <input type="password" name="password" size="30" placeholder="Entrez votre password"/>
-        </br></br>
+        <label for ="mail">E-mail :</label>
+        <input id="mail" type="text" name="mail" size="30"  placeholder="Entrez votre e-mail"/>
+        <label for ="login">Nom d'utilisateur :</label>
+        <input id="login" type="text" name="login" size="30"  placeholder="Entrez votre login"/>
+        <label for ="pass">Mot de passe :</label>
+        <input id="pass" type="password" name="password" size="30" placeholder="Entrez votre password"/>
+        <br /><br />
         <button id="btncrea" name="creation" type="submit" >Créer le compte</button>
     </form>
 
