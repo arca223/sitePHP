@@ -1,7 +1,7 @@
 # sitePHP
 trolololo site php ! oohoho
 
-TODO :
+
 
 echo "du html" => regle le probleme d'interpretation/perte de temps/perf
 
@@ -10,12 +10,13 @@ file_get_contents()
 str_replace des variables [$toto]
 
 
-Struct en plusieurs fichiers le html
-header
-body
-footer
+TODO :
 
 css
 
-/!\important/!\
-changer le BDD, faire les requetes par rapport
+XSL/XML DTD
+
+Webserv
+
+
+Recherche patho : undifined offset + mauvaise valeurs affichées

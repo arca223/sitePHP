@@ -1,49 +1,52 @@
 
-<form action="controleurPathologies.php" method="post">
-    <table>
+
+<div class="corps">
+    <form action="controleurPathologies.php" method="post">
 
 
-        <div class="corps">
+        <table>
+
             <table class="tabpatho">
                 <caption>Liste des pathologies</caption>
                 <tr>
                     <th class="lp" id="nom_mer">Nom du méridien</th>
-                    <th class="lp" id="type_patho">Type</th>
+                    <th colspan="2" class="lp" id="type_patho">Type</th>
                 </tr>
-                <td>
-                    <select name="nom[]" multiple="multiple">
-                        <?php
-                        foreach ($listeNom as $pathologie)
-                        {
-                            ?>
-
-                                <option name="nom_mer"><?php echo $pathologie; ?></option>
-
-                        <?php
-                        }
-                        ?>
-                    </select>
+                <td class="notalign">
+                    <?php
+                    foreach ($listeNom as $pathologie)
+                    {
+                        $i=0;
+                    ?>
+                        <input type="checkbox" name="noms[]" value=<?php echo "'$pathologie'/>$pathologie"; ?><br>
+                    <?php
+                    }
+                    ?>
                 </td>
-                <td>
-                    <select name="type[]" multiple="multiple">
-                        <?php
-                        foreach ($listeType as $pathologie)
-                        {
-                            ?>
-
-                            <option name="type_patho"><?php echo $pathologie; ?></option>
-
-                        <?php
-                        }
-                        ?>
-                    </select>
+                <td class="notalign">
+                    <?php
+                    for ($i=0 ; $i < $row ; $i++)
+                    {
+                    ?>
+                        <input type="checkbox" name="types1[]" value=<?php echo "'$listeType[$i]'/>$listeType[$i]"; ?><br>
+                    <?php
+                    }
+                    ?>
+                </td>
+                <td class="notalign" id="typecolumn">
+                    <?php
+                    for ($i=$row ; $i < $row2+$row ; $i++)
+                    {
+                    ?>
+                        <input type="checkbox" name="types2[]" value=<?php echo "'$listeType[$i]'/>$listeType[$i]"; ?><br>
+                    <?php
+                    }
+                    ?>
                 </td>
             </table>
-        </div>
 
-
-
-
-
-    </table>
-</form>
+        </table>
+        <br /><br />
+        <button name="recherchePatho" type="submit" >Rechercher</button>
+    </form>
+</div>
