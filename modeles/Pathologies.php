@@ -16,7 +16,7 @@ Class Pathologies {
      */
     function get_listePatho()
     {
-        $req = $this->_bdd->prepare('SELECT nom, mer, patho.desc, patho.type, yin, element FROM `patho` LEFT JOIN meridien as me on patho.mer=me.code ');
+        $req = $this->_bdd->prepare('SELECT nom, mer, patho.desc as carac, patho.type, yin, element, s.desc FROM `patho` LEFT JOIN meridien as me on patho.mer=me.code JOIN symptpatho as sp on sp.idP=patho.idP JOIN symptome as s on s.idS=sp.idS ORDER BY nom');
         $req->execute();
         $pathologies = $req->fetchAll();
 
@@ -87,30 +87,60 @@ Class Pathologies {
      */
     function recherchePatho($noms,$types)
     {
-        $row = count($noms);
+        /*$row = count($noms)-1;
         $sqlNoms = 'nom="' . $noms[0] . '"';
         for ($i=1 ; $i < $row ; $i++) {
             $sqlNoms = $sqlNoms . ' OR nom="' . $noms[$i] . '"';
+        }*/
+
+        $sql="";
+
+        if (! empty($noms) && !empty($types)) {
+            var_dump(2);
+            $sqlNoms = join('","',$noms);
+            $sqlTypes = join('","',$types);
+            $sql='SELECT me.nom, patho.type, patho.desc, yin, element FROM patho, meridien as me WHERE me.nom in ("'.$sqlNoms.'") and patho.type in ("'.$sqlTypes.'") and me.code=patho.mer';
+        } else if (! empty($noms)) { //type vide, sinon on serait dans le cas avant
+            var_dump("noms");
+            $sqlNoms = join('","',$noms);
+            $sql='SELECT me.nom, patho.type, patho.desc, yin, element FROM patho, meridien as me WHERE me.nom in ("'.$sqlNoms.'") and me.code=patho.mer';
+        } else {
+            var_dump("types");
+            $sqlTypes = join('","',$types);
+            $sql='SELECT me.nom, patho.type, patho.desc, yin, element FROM patho, meridien as me WHERE patho.type in ("'.$sqlTypes.'") and me.code=patho.mer';
         }
 
-        $row = count($types);
+
+        /*$row = count($types)-1;
         $sqlTypes = 'patho.type="'. $types[0] . '"';
         for ($i=1 ; $i < $row ; $i++) {
-            $sqlTypes = $sqlTypes . ' OR patho.type="' . $noms[$i] . '"';
-        }
+            $sqlTypes = $sqlTypes . ' OR patho.type="' . $types[$i] . '"';
+        }*/
 
-        $sql = "SELECT nom, mer, patho.desc, patho.type, yin, element FROM patho LEFT JOIN meridien as me on patho.mer=me.code WHERE $sqlNoms and $sqlTypes";
 
+
+        //$sql = "SELECT nom, mer, patho.desc, patho.type, yin, element FROM patho LEFT JOIN meridien as me on patho.mer=me.code WHERE $sqlNoms and $sqlTypes";
         //impo de préparer car sinon ça ne renvoit rien, du coup on part sur un query de base, mais c'est que des checkbox donc aucun soucis
-        /*$req = $this->_bdd->prepare("SELECT me.nom, patho.type FROM patho, meridien as me WHERE ? and ?");
+        /*$req = $this->_bdd->prepare('SELECT me.nom, patho.type, patho.desc, yin, element FROM patho, meridien as me WHERE me.nom in ("?") and patho.type in ("?") and me.code=patho.mer');
         $req->bindParam(1, $sqlNoms, PDO::PARAM_STR);
         $req->bindParam(2, $sqlTypes, PDO::PARAM_STR);
-        $req->execute();*/
-
+        $req->execute();
+        $req->debugDumpParams();
+        $req->errorInfo();*/
         $req = $this->_bdd->query($sql);
         $patho = $req->fetchAll();
 
         return $patho;
+    }
+
+    function rechercheMotCle($mot) {
+        $mot = "%" . $mot . "%";
+        $req = $this->_bdd->prepare('SELECT nom, mer, patho.desc as carac, patho.type, yin, element, s.desc FROM `patho` JOIN meridien as me on patho.mer=me.code JOIN symptpatho as sp on sp.idP=patho.idP JOIN keysympt as ks on ks.idS=sp.idS JOIN symptome as s on s.idS=sp.idS JOIN keywords as kw on kw.idK=ks.idK WHERE kw.name LIKE ?  ');
+        $req->bindParam(1, $mot, PDO::PARAM_STR);
+        $req->execute();
+        $pathologies = $req->fetchAll();
+
+        return $pathologies;
     }
 
     /*

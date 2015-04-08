@@ -139,6 +139,6 @@ th,td {
     border-left: 0px!important;
 }
 
-.tabpatho button {
-
+#rechercheGauche {
+    float: right;
 }

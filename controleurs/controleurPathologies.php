@@ -7,6 +7,8 @@ $bdd = new ConnexionBDD();
 $patho = new Pathologies($bdd);
 
 
+$listePatho=array();
+
 if (isset($_POST['recherchePatho'])) {
     $noms = isset($_POST["noms"])?$_POST["noms"]:null;
     $types1 = isset($_POST["types1"])?$_POST["types1"]:array();
@@ -16,6 +18,11 @@ if (isset($_POST['recherchePatho'])) {
 
     //recherche multiple nom et type
     $listePatho = $patho->recherchePatho($noms,$types);
+} else if (isset($_POST['rechMotCle'])) {
+    $motcle = isset($_POST['motcle'])?$_POST['motcle']:null;
+    if ($motcle) {
+        $listePatho = $patho->rechercheMotCle($motcle);
+    }
 } else {
     $listePatho = $patho->get_listePatho();
 }

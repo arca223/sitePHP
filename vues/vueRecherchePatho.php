@@ -3,6 +3,14 @@
 <div class="corps">
     <form action="controleurPathologies.php" method="post">
 
+        <div>
+
+            <br />
+            <input type="text" name="motcle" size=30 placeholder="Mot clé" />
+            <br /><br />
+            <button name="rechMotCle" type="submit">Rechercher</button>
+
+        </div>
 
         <table>
 
@@ -17,7 +25,7 @@
                     foreach ($listeNom as $pathologie)
                     {
                         $i=0;
-                    ?>
+                        ?>
                         <input type="checkbox" name="noms[]" value=<?php echo "'$pathologie'/>$pathologie"; ?><br>
                     <?php
                     }
@@ -27,7 +35,7 @@
                     <?php
                     for ($i=0 ; $i < $row ; $i++)
                     {
-                    ?>
+                        ?>
                         <input type="checkbox" name="types1[]" value=<?php echo "'$listeType[$i]'/>$listeType[$i]"; ?><br>
                     <?php
                     }
@@ -37,7 +45,7 @@
                     <?php
                     for ($i=$row ; $i < $row2+$row ; $i++)
                     {
-                    ?>
+                        ?>
                         <input type="checkbox" name="types2[]" value=<?php echo "'$listeType[$i]'/>$listeType[$i]"; ?><br>
                     <?php
                     }
@@ -48,5 +56,6 @@
         </table>
         <br /><br />
         <button name="recherchePatho" type="submit" >Rechercher</button>
+
     </form>
 </div>
