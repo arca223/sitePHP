@@ -1,35 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <?xml-stylesheet type="text/xsl" href="vueAccueil.xsl" ?>
-<html>
-	<head>
-		<title>Accueil du site AAA</title>
-	</head>
-	<body dir="ltr">
-		<contenu>
-			<couple>
-				<titre niveauOrig="1">
-					Liste des pathologies
-				</titre>
-				<description>
-					Liste toutes les pathologies avec leurs caractéristiques respectives
-				</description>
-			</couple>
-			<couple>
-				<titre niveauOrig="1">
-					Rechercher une	pathologie
-				</titre>
-				<description>
-					Permet de rechercher une pathologie via un mot clé ou via	une ou plusieure(s) caractéristique(s)
-				</description>
-			</couple>
-			<couple>
-				<titre niveauOrig="1">
-					Informations du compte
-				</titre>
-				<description>
-					Affiche les informations relatives au compte connecté
-				</description>
-			</couple>
-		</contenu>
-	</body>
-</html>
+
+<accueil>
+	<couple>
+		<titre niveauOrig="1">
+			Liste des pathologies
+		</titre>
+		<description>
+			Liste toutes les pathologies avec leurs caractéristiques respectives
+		</description>
+	</couple>
+	<couple>
+		<titre niveauOrig="1">
+			Rechercher une	pathologie
+		</titre>
+		<description>
+			Permet de rechercher une pathologie via un mot clé ou via	une ou plusieure(s) caractéristique(s)
+		</description>
+	</couple>
+	<couple>
+		<titre niveauOrig="1">
+			Informations du compte
+		</titre>
+		<description>
+			Affiche les informations relatives au compte connecté
+		</description>
+	</couple>
+</accueil>

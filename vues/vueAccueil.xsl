@@ -23,7 +23,7 @@ indent="yes" />
 
 	<xsl:template match="accueil">
 		<h1>Liste des features présentes sur le site :</h1>
-		<xsl:for-each select="contenu/couple">
+		<xsl:for-each select="couple">
 			<ul>
 				<li><xsl:value-of select="."/></li>
 			</ul>
