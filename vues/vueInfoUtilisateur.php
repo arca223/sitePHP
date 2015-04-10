@@ -2,19 +2,13 @@
 ?>
 <title>Informations personnelles</title>
 <div class="corps">
-    <label for="nom">Nom :</label>
-    <input id="nom" type="text" name="nom" size="30"  value="<?php echo $infoUser['nom']; ?>"/>
+    <p>Vos informations, cher <strong><?php echo $infoUser['login']; ?></strong> :</p>
+    <label for="nom">Nom : <?php echo $infoUser['nom'];?></label>
     <br /><br />
-    <label for ="prenom">Prénom :</label>
-    <input id="prenom" type="text" name="prenom" size="30"  value="<?php echo $infoUser['prenom']; ?>"/>
+    <label for ="prenom">Prénom : <?php echo $infoUser['prenom']; ?></label>
     <br /><br />
-    <label for ="profession">Profession/Rôle :</label>
-    <input id="profession" type="text" name="prenom" size="30"  value="<?php echo $infoUser['profession']; ?>"/>
+    <label for ="profession">Profession/Rôle : <?php echo $infoUser['profession']; ?></label>
     <br /><br />
-    <label for ="mail">E-mail :</label>
-    <input id="mail" type="text" name="mail" size="30"  value="<?php echo $infoUser['mail']; ?>"/>
-    <br /><br />
-    <label for ="login">Nom d'utilisateur :</label>
-    <input id="login" type="text" name="login" size="30"  value="<?php echo $infoUser['login']; ?>"/>
+    <label for ="mail">E-mail : <?php echo $infoUser['mail']; ?></label>
     <br /><br />
 </div>

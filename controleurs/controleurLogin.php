@@ -1,18 +1,20 @@
 <?php
 session_start();
 require "../modeles/Utilisateurs.php";
+require "../modeles/ConnexionBdd.php";
 
 if (isset($_POST["connexion"])) {
     $login=$_POST["login"];
     $password=md5($_POST["password"]);
     //test l'association login/password existe
 
+    $bdd = new ConnexionBDD();
     $user = new Utilisateurs($bdd);
-    if ($user->verifLogin($login)) {
+    if ($user->verifConnexion($login,$password)) {
         $_SESSION['compte']=$login;
         //à envoyer sur controleurInformations.php des que crée
 ?>
-        <script>window.location.replace("../informations.php");</script>
+        <script>window.location.replace("controleurInfosUtilisateur.php");</script>
 <?php
     } else {
 ?>
