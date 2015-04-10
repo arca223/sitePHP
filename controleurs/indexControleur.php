@@ -1,6 +1,6 @@
 <?php
 
-
+session_start();
 //controleur de départ si besoin spécifique, sinon controleur mvc d'accueil
 
 

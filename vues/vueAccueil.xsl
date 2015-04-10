@@ -12,7 +12,6 @@ indent="yes" />
 			<head>
 				<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 				<title>Utilisation d'XSL</title>
-				<link href="accueil.css" rel="stylesheet"/>
 			</head>
 			<body>
 				<xsl:apply-templates select="*" />
