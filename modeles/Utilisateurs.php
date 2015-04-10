@@ -22,7 +22,6 @@ class Utilisateurs {
 
     public function ajouterUtilisateur($login, $nom, $prenom, $mail, $profession) {
         
-
         $req = $this->_db->prepare("INSERT INTO `utilisateurs`(`login`, `nom`, `prenom`, `mail`, `profession`) VALUES (?,?,?,?,?)");
         //$sql="INSERT INTO `utilisateurs`(`login`, `nom`, `prenom`, `mail`, `profession`) VALUES ($login,$nom,$prenom,$mail,$profession)"; //données de l'users pour l'ajout
         //$resAdd=$this->_db->query($sql);

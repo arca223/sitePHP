@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require "../modeles/Utilisateurs.php";
 
 if (isset($_POST["connexion"])) {

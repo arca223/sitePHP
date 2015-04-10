@@ -1,5 +1,4 @@
-<?php
-?>
+<title>Accueil</title>
 <div class="corps">
 
     <br>
