@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" "http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd" >
+<html xml:lang="fr-FR" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Accueil du site AAA</title>
+  </head>
+  <body dir="ltr">
+  	<contenu>
+  		<titre>Liste des pathologies</titre>
+  		<description>Liste toutes les pathologies avec leurs caractéristiques respectives</description>
+  		<titre>Rechercher une pathologie</titre>
+  		<description>Permet de rechercher une pathologie via un mot clé ou via une ou plusieur(s) caractéristique(s)</description>
+  		<titre>Informations du compte</titre>
+  		<description>Affiche les informations relatives au compte connecté</description>
+  	</contenu>
+  </body>
+</html>
