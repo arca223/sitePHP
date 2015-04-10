@@ -1,6 +1,6 @@
 
 <div class="corps">
-    <form method="post" action="">
+    <form class="corps" method="post" action="">
         <p>Nom d'utilisateur</p>
         <input type="text" name="login" size="30"  placeholder="Entrez votre login"/>
         <br />
@@ -9,7 +9,7 @@
         <br /><br />
         <button name="connexion" type="submit" >Connexion</button>
     </form>
-    <form method="post" action="controleurCreationUtilisateur.php">
+    <form class="corps" method="post" action="controleurCreationUtilisateur.php">
         <p>Si vous n'avez pas de compte :</p>
         <button name="register" type="submit" >S'enregistrer</button>
     </form>

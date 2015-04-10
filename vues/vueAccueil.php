@@ -1,13 +1,13 @@
-<?php 
+<?php
 
-	$xslt = new XSLTProcessor(); 
+	$xslt = new XSLTProcessor();
 
-	$xslDoc = new DOMDocument(); 
-	$xslDoc->load('accueil.xsl'); 
-	$xslt->importStylesheet($xslDoc); 
+	$xslDoc = new DOMDocument();
+	$xslDoc->load('vueAccueil.xsl');
+	$xslt->importStylesheet($xslDoc);
 
-	$xmlDoc = new DOMDocument(); 
-	$xmlDoc->load('accueil.xml'); 
+	$xmlDoc = new DOMDocument();
+	$xmlDoc->load('vueAccueil.xml');
 	echo $xslt->transformToXML($xmlDoc);
 
 ?>

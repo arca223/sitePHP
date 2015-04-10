@@ -1,7 +1,8 @@
 
 
 <div class="corps">
-    <form action="controleurPathologies.php" method="post">
+
+    <form class="corps" action="controleurPathologies.php" method="post">
 
         <div>
 

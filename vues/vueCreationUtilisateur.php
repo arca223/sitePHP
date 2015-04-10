@@ -1,7 +1,7 @@
-<title>Création d'un compte utilisateur</title>
+
 <div class="corps">
-    <form method="post" action="#">
-        <br />
+    <form class="corps" method="post" action="#">
+        <p>Création d'un compte utilisateur</p>
         <label for="nom">Nom :</label>
         <input id="nom" type="text" name="nom" size="30"  placeholder="Entrez votre nom"/>
         <br /><br />
