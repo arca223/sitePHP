@@ -1,20 +1,19 @@
 
 
-var url="/controleurs/controleurLogin.php";
-var data=true;
 
 
+function mafonction() {
+    if (confirm("Are you sure you want to disconnect ?")){
+        var session = document.getElementById('session');
+        session.value = false;
+    }
+
+}
+
+/*
 //Pour la déco, changement de session
 $('#unlog').on('click', function() {
-    if (confirm("Are you sure you want to disconnect ?")){
-        $.ajax({
-            type: "POST",
-            url: url,
-            data: data
-        });
-    };
-    return false;
-});
+
 /*
 document.getElementById("myImage").src = "landscape.jpg";
 
@@ -29,11 +28,13 @@ $(document).ready(function(){
 header(session) {
 
   */
-//var session = document.getElementsById('session');
+
 
 
 $(document).ready(function(){
-    if (session==null) {
+
+    var session = document.getElementById('session');
+    if (session.value==false) {
 
         $( '#onglets' ).append( '<li><a href="/controleurs/indexControleur.php">Accueil</a></li>');
         $( '#onglets' ).append( '<li><a href="/controleurs/controleurPathologies.php">Liste des pathologies</a></li>');
@@ -45,7 +46,8 @@ $(document).ready(function(){
         $( '#onglets' ).append( '<li><a href="/controleurs/controleurPathologies.php">Liste des pathologies</a></li>');
         $( '#onglets' ).append( '<li><a href="/controleurs/controleurRecherchePatho.php">Rechercher une pathologie</a></li>');
         $( '#onglets' ).append( '<li><a href="/controleurs/controleurInfosUtilisateur.php">Mes informations</a></li>');
-        $( '#onglets' ).append( '<li><a href="/controleurs/controleurLogin.php">Se déconnecter</a></li>')
+        //$( '#onglets' ).append( '<li><a id="unlog" href="/controleurs/controleurLogin.php">Se déconnecter</a></li>')
+        $( '#onglets' ).append( "<li><a href='/controleurs/controleurLogin.php?session=false'>Se déconnecter</a></li>")
     }
 
 });

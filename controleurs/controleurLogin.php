@@ -3,6 +3,12 @@ session_start();
 require "../modeles/Utilisateurs.php";
 require "../modeles/ConnexionBdd.php";
 
+
+if (isset($_GET['session'])) {
+    session_unset();
+    session_destroy();
+}
+
 if (isset($_POST["connexion"])) {
     $login=$_POST["login"];
     $password=md5($_POST["password"]);

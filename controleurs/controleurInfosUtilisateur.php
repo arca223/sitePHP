@@ -7,16 +7,10 @@ require "../modeles/Utilisateurs.php";
 
 
 
-if (isset($_SESSION['compte']))
-{
-    $bdd = new ConnexionBDD();
-    $user = new Utilisateurs($bdd);
-    $infoUser = $user->getUtilisateur($_SESSION['compte']);
-}
-else
-{
-    echo "Vous n'êtes pas connecté !";
-}
+$bdd = new ConnexionBDD();
+$user = new Utilisateurs($bdd);
+$infoUser = $user->getUtilisateur($_SESSION['compte']);
+
 
 include_once "../ressources/layout/header.php";
 include_once "../vues/vueInfoUtilisateur.php";

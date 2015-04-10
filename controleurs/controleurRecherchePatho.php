@@ -4,7 +4,6 @@ session_start();
 require "../modeles/ConnexionBdd.php";
 require "../modeles/Pathologies.php";
 
-
 $bdd = new ConnexionBDD();
 $patho = new Pathologies($bdd);
 

@@ -9,6 +9,7 @@ echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.or
 	<link rel="stylesheet" href="/ressources/css/print.css" type="text/css" media="print" />
 	<script type="text/javascript" src="/ressources/js/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="/ressources/js/jsheader.js"></script>
+
 </head>
 
 <body>
@@ -29,5 +30,5 @@ echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.or
 		</ul>
 	</div>
 
-	<input hidden=true id="session" value='; echo isset($_SESSION['compte'])?true:false; echo '
+	<input hidden="true" id="session" value='; $var = isset($_SESSION['compte'])?true:false; echo $var.'>
 ';
