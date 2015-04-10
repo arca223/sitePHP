@@ -84,6 +84,16 @@ class Utilisateurs {
         return $res;
     }
 
+    public function verifConnexion($login,$password)
+    {
+        $req = $this->_db->prepare('SELECT login FROM `users` WHERE `login`=? and password=?');
+        $req->bindParam(1, $login, PDO::PARAM_STR);
+        $req->bindParam(2, $password, PDO::PARAM_STR);
+        $req->execute();
+        $res = $req->fetch(PDO::FETCH_COLUMN);
+        return $res;
+    }
+
 
 
 }
