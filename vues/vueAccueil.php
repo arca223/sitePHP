@@ -1,8 +1,13 @@
-<title>Accueil</title>
-<div class="corps">
+<?php 
 
-    <br>
-    <p> Bienvenue sur le site </p>
-    <br>
+	$xslt = new XSLTProcessor(); 
 
-</div>
+	$xslDoc = new DOMDocument(); 
+	$xslDoc->load('accueil.xsl'); 
+	$xslt->importStylesheet($xslDoc); 
+
+	$xmlDoc = new DOMDocument(); 
+	$xmlDoc->load('accueil.xml'); 
+	echo $xslt->transformToXML($xmlDoc);
+
+?>

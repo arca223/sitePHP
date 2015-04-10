@@ -1,63 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <?xml-stylesheet type="text/xsl" href="vueAccueil.xsl" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" "http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd" >
-<html xml:lang="fr-FR" xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <title>Accueil du site AAA</title>
-  </head>
-  <body dir="ltr">
-  	<contenu>
-  		<titre niveauOrig="1">
-	  		<mot>Liste</mot>
-	  		<mot>des</mot>
-	  		<mot>pathologies</mot>
-	  	</titre>
-  		<description>
-  			<mot>Liste</mot>
-  			<mot>toutes</mot>
-  			<mot>les</mot>
-  			<mot>pathologies</mot>
-  			<mot>avec</mot>
-  			<mot>leurs</mot>
-  			<mot>caractéristiques</mot>
-  			<mot>respectives</mot>
-  		</description>
-  		<titre niveauOrig="1">
-  			<mot>Rechercher</mot>
-  			<mot>une</mot>
-  			<mot>pathologie</mot>
-  		</titre>
-  		<description>
-	  		<mot>Permet</mot>
-	  		<mot>de</mot>
-	  		<mot>rechercher</mot>
-	  		<mot>une</mot>
-	  		<mot>pathologie</mot>
-	  		<mot>via</mot>
-	  		<mot>un</mot>
-	  		<mot>mot</mot>
-	  		<mot>clé</mot>
-	  		<mot>ou</mot>
-	  		<mot>via</mot>
-	  		<mot>une</mot>
-	  		<mot>ou</mot>
-	  		<mot>plusieur(s)</mot>
-	  		<mot>caractéristique(s)</mot>
-  		</description>
-  		<titre niveauOrig="1">
-  			<mot>Informations</mot>
-	  		<mot>du</mot> 
-  			<mot>compte</mot>
-  		</titre>
-  		<description>
-  			<mot>Affiche</mot>
-	  		<mot>les</mot>
-	  		<mot>informations</mot>
-	  		<mot>relatives</mot>
-	  		<mot>au</mot>
-	  		<mot>compte</mot>
-	  		<mot>connecté</mot>
-  		</description>
-  	</contenu>
-  </body>
+<html>
+	<head>
+		<title>Accueil du site AAA</title>
+	</head>
+	<body dir="ltr">
+		<contenu>
+			<couple>
+				<titre niveauOrig="1">
+					Liste des pathologies
+				</titre>
+				<description>
+					Liste toutes les pathologies avec leurs caractéristiques respectives
+				</description>
+			</couple>
+			<couple>
+				<titre niveauOrig="1">
+					Rechercher une	pathologie
+				</titre>
+				<description>
+					Permet de rechercher une pathologie via un mot clé ou via	une ou plusieure(s) caractéristique(s)
+				</description>
+			</couple>
+			<couple>
+				<titre niveauOrig="1">
+					Informations du compte
+				</titre>
+				<description>
+					Affiche les informations relatives au compte connecté
+				</description>
+			</couple>
+		</contenu>
+	</body>
 </html>
